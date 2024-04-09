@@ -5,13 +5,13 @@ function ativarBotao(botao) {
     // Desativar todos os botões
     var botoes = document.querySelectorAll(".botao");
     for (var i = 0; i < botoes.length; i++) {
-    botoes[i].classList.remove("ativo");
-    }
+      botoes[i].classList.remove("ativo");
+     }
     
     // Ativar o botão apenas se não estiver ativado
     if (!estaAtivo) {
-    botao.classList.add("ativo");
-    }
+      botao.classList.add("ativo");
+     }
     }
     // Definir a data-alvo (sete dias a partir da data atual)
     var dataAlvo = new Date();
@@ -23,25 +23,25 @@ function ativarBotao(botao) {
     
     // Atualizar o contador a cada segundo
     var intervalo = setInterval(function() {
-    // Obter a data e hora atuais
-    var agora = new Date().getTime();
+      // Obter a data e hora atuais
+      var agora = new Date().getTime();
     
-    // Calcular a diferença entre a data-alvo e a data atual
+      // Calcular a diferença entre a data-alvo e a data atual
     var diferenca = dataAlvo - agora;
     
-    // Calcular dias, horas, minutos e segundos restantes
+      // Calcular dias, horas, minutos e segundos restantes
     var dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
     var horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     var minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
     var segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
     
-    // Exibir o contador na página
+      // Exibir o contador na página
     document.getElementById("dias").innerHTML = formatarTempo(dias);
     document.getElementById("horas").innerHTML = formatarTempo(horas);
     document.getElementById("minutos").innerHTML = formatarTempo(minutos);
     document.getElementById("segundos").innerHTML = formatarTempo(segundos);
     
-    // Se a contagem regressiva terminar, exibir uma mensagem
+      // Se a contagem regressiva terminar, exibir uma mensagem
     if (diferenca < 0) {
     clearInterval(intervalo);
     document.getElementById("timer").innerHTML = "EXPIRADO";
